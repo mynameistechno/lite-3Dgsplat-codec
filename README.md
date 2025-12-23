@@ -2,13 +2,12 @@
 # SPDX-License-Identifier: Apache-2.0
 
 # L-GSC v1.0
-Library for coding Gaussian Splat representations
+## Library for compression and decompression of Gaussian Splat representations
 
-
-This code may be used to compress Gaussian Splat (GS) representations. Currently, 
+This source code may be used to encode and decode Gaussian Splat (GS) representations. Currently, 
 the INRIA format is supported as input for the GS representation.
 
-The lgsc library may be built with the project to access the APIs. A sample implementation
+The L-GSC library may be built with the project to access the APIs. A sample implementation
 of the API (compression and decompression) is available.
 
 ## To obtain the code:
@@ -82,10 +81,10 @@ The library provides API for compression and decompression.
 ### 📥 API Inputs
 The inputs to the API are as follows:
 - numGausians - number of Gaussians that are to be compressed (say N)
-- positions - vector of positions stored in linear array (0, 0) (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
-- rotations - vector of rotations stored in linear array (0, 0) (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2) ... (size Nx4)
-- scales    - vector of scales    stored in linear array (0, 0) (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
-- opacities - vector of opacities stored in linear array (0, 0) (1, 0), (2, 0) ... (size Nx1)
+- positions - vector of positions stored in linear array (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
+- rotations - vector of rotations stored in linear array (0, 0), (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2) ... (size Nx4)
+- scales    - vector of scales    stored in linear array (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
+- opacities - vector of opacities stored in linear array (0, 0), (1, 0), (2, 0) ... (size Nx1)
 - features_diffuse    - vector of RGB DC stored in linear array (0, 0) (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
 - features_specular   - vector of RGB spherical harmonics higher order
                         coefficients stored in array of (N, 3, F) that is linearized
@@ -114,11 +113,11 @@ The input to the API is a vector of compressed bytes (that was compressed by the
 ### 📤 API Output
 The outputs of the API are as follows:
 - numGausians - number of Gaussians that are decompressed (say N)
-- positions - vector of positions stored in linear array (0, 0) (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
-- rotations - vector of rotations stored in linear array (0, 0) (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2) ... (size Nx4)
-- scales    - vector of scales    stored in linear array (0, 0) (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
-- opacities - vector of opacities stored in linear array (0, 0) (1, 0), (2, 0) ... (size Nx1)
-- features_diffuse    - vector of RGB DC stored in linear array (0, 0) (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
+- positions - vector of positions stored in linear array (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
+- rotations - vector of rotations stored in linear array (0, 0), (0, 1), (0, 2), (0, 3), (1, 0), (1, 1), (1, 2) ... (size Nx4)
+- scales    - vector of scales    stored in linear array (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
+- opacities - vector of opacities stored in linear array (0, 0), (1, 0), (2, 0) ... (size Nx1)
+- features_diffuse    - vector of RGB DC stored in linear array (0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2), (2, 0) ... (size Nx3)
 - features_specular   - vector of RGB spherical harmonics higher order
                         coefficients stored in array of (N, 3, 15) that is linearized
                         If original point cloud had fewer than order 3 coefficients, the unavailable coefficients are filled with 0s.
