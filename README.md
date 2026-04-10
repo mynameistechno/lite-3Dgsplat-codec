@@ -1,6 +1,3 @@
-# Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.  
-# SPDX-License-Identifier: Apache-2.0
-
 # L-GSC v1.0
 ## Library for compression and decompression of Gaussian Splat representations
 
@@ -121,3 +118,7 @@ The outputs of the API are as follows:
 - features_specular   - vector of RGB spherical harmonics higher order
                         coefficients stored in array of (N, 3, 15) that is linearized
                         If original point cloud had fewer than order 3 coefficients, the unavailable coefficients are filled with 0s.
+
+### License
+
+This project is licensed under the [Apache License 2.0](https://spdx.org/licenses/Apache-2.0.html). See [LICENSE.txt](LICENSE.txt) for the full license text.
